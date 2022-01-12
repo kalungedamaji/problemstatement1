@@ -31,7 +31,7 @@ public class ShoppingCart {
 
 
         public BigDecimal calculateTotalPrice () {
-            return getProduct().getPrice().multiply(BigDecimal.valueOf(getNumberOfProducts())).setScale(2, BigDecimal.ROUND_HALF_UP);
+            return getProduct().getPrice().multiply(BigDecimal.valueOf(getNumberOfProducts())).setScale(Precision.setScale, BigDecimal.ROUND_HALF_UP);
         }
 
 
