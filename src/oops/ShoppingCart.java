@@ -3,15 +3,31 @@ package oops;
 import java.math.BigDecimal;
 
 public class ShoppingCart {
-    int numberOfProducts = 0;
-    Product product;
+    private int numberOfProducts = 0;
+    private Product product;
 
-    public void addProducts(Product product, int numberOfProducts) {
+    public void setNumberOfProducts(int numberOfProducts) {
         this.numberOfProducts = numberOfProducts;
+    }
+
+    public void setProduct(Product product) {
         this.product = product;
     }
 
+    public int getNumberOfProducts() {
+        return numberOfProducts;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void addProducts(Product product, int numberOfProducts) {
+        setNumberOfProducts(numberOfProducts);
+        setProduct(product);
+    }
+
     public BigDecimal calculateTotalPrice() {
-        return (product.price.multiply(BigDecimal.valueOf(numberOfProducts)).setScale(2, BigDecimal.ROUND_HALF_UP)) ;
+        return (getProduct().getPrice().multiply(BigDecimal.valueOf(getNumberOfProducts())).setScale(2, BigDecimal.ROUND_HALF_UP)) ;
     }
 }
