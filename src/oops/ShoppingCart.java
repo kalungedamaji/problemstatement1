@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 public class ShoppingCart {
     private int numberOfProducts = 0;
     private Product product;
+    private static final int TWO_DIGIT_PRECISION =2;
 
     public void addProducts(Product product, int numberOfProducts) {
         this.setNumberOfProducts(numberOfProducts);
@@ -12,7 +13,7 @@ public class ShoppingCart {
     }
 
     public BigDecimal calculateTotalPrice() {
-        return getProduct().getPrice().multiply(BigDecimal.valueOf(getNumberOfProducts())).setScale(2, BigDecimal.ROUND_HALF_UP);
+        return getProduct().getPrice().multiply(BigDecimal.valueOf(getNumberOfProducts())).setScale(TWO_DIGIT_PRECISION, BigDecimal.ROUND_HALF_UP);
     }
 
     public void setNumberOfProducts(int numberOfProducts) {
